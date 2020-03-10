@@ -179,11 +179,60 @@
     <Compile Include="Migrations\202003082058219_InitialModel.Designer.cs">
       <DependentUpon>202003082058219_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003082128572_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202003082128572_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>202003082128572_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003082135086_AddMembershipType.cs" />
+    <Compile Include="Migrations\202003082135086_AddMembershipType.Designer.cs">
+      <DependentUpon>202003082135086_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003082137192_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\202003082137192_PopulateMembershipType.Designer.cs">
+      <DependentUpon>202003082137192_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101848534_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202003101848534_ApplyAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>202003101848534_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101950312_AddedNameToMemberType.cs" />
+    <Compile Include="Migrations\202003101950312_AddedNameToMemberType.Designer.cs">
+      <DependentUpon>202003101950312_AddedNameToMemberType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102001589_UpdatedMemberrshipTypesNames.cs" />
+    <Compile Include="Migrations\202003102001589_UpdatedMemberrshipTypesNames.Designer.cs">
+      <DependentUpon>202003102001589_UpdatedMemberrshipTypesNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102004343_UpdatedMemberrshipTypesNames1.cs" />
+    <Compile Include="Migrations\202003102004343_UpdatedMemberrshipTypesNames1.Designer.cs">
+      <DependentUpon>202003102004343_UpdatedMemberrshipTypesNames1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102023506_AddedDateOfBirthToCustomer.cs" />
+    <Compile Include="Migrations\202003102023506_AddedDateOfBirthToCustomer.Designer.cs">
+      <DependentUpon>202003102023506_AddedDateOfBirthToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102029576_updateDateOfBirthToCustomer.cs" />
+    <Compile Include="Migrations\202003102029576_updateDateOfBirthToCustomer.Designer.cs">
+      <DependentUpon>202003102029576_updateDateOfBirthToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102036066_NullableDateOfBirthToCustomer.cs" />
+    <Compile Include="Migrations\202003102036066_NullableDateOfBirthToCustomer.Designer.cs">
+      <DependentUpon>202003102036066_NullableDateOfBirthToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102105074_UpdateCustomerWithBirthday.cs" />
+    <Compile Include="Migrations\202003102105074_UpdateCustomerWithBirthday.Designer.cs">
+      <DependentUpon>202003102105074_UpdateCustomerWithBirthday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102112132_UpdateCustomerWithBirthdayTake3.cs" />
+    <Compile Include="Migrations\202003102112132_UpdateCustomerWithBirthdayTake3.Designer.cs">
+      <DependentUpon>202003102112132_UpdateCustomerWithBirthdayTake3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -248,6 +297,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -268,6 +318,42 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003082058219_InitialModel.resx">
       <DependentUpon>202003082058219_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003082128572_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202003082128572_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003082135086_AddMembershipType.resx">
+      <DependentUpon>202003082135086_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003082137192_PopulateMembershipType.resx">
+      <DependentUpon>202003082137192_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101848534_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>202003101848534_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101950312_AddedNameToMemberType.resx">
+      <DependentUpon>202003101950312_AddedNameToMemberType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102001589_UpdatedMemberrshipTypesNames.resx">
+      <DependentUpon>202003102001589_UpdatedMemberrshipTypesNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102004343_UpdatedMemberrshipTypesNames1.resx">
+      <DependentUpon>202003102004343_UpdatedMemberrshipTypesNames1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102023506_AddedDateOfBirthToCustomer.resx">
+      <DependentUpon>202003102023506_AddedDateOfBirthToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102029576_updateDateOfBirthToCustomer.resx">
+      <DependentUpon>202003102029576_updateDateOfBirthToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102036066_NullableDateOfBirthToCustomer.resx">
+      <DependentUpon>202003102036066_NullableDateOfBirthToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102105074_UpdateCustomerWithBirthday.resx">
+      <DependentUpon>202003102105074_UpdateCustomerWithBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102112132_UpdateCustomerWithBirthdayTake3.resx">
+      <DependentUpon>202003102112132_UpdateCustomerWithBirthdayTake3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
