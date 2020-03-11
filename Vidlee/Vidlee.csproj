@@ -227,9 +227,38 @@
     <Compile Include="Migrations\202003102112132_UpdateCustomerWithBirthdayTake3.Designer.cs">
       <DependentUpon>202003102112132_UpdateCustomerWithBirthdayTake3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003111826288_AddedMoviesToDbSet.cs" />
+    <Compile Include="Migrations\202003111826288_AddedMoviesToDbSet.Designer.cs">
+      <DependentUpon>202003111826288_AddedMoviesToDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111831506_ChangedMovieModel.cs" />
+    <Compile Include="Migrations\202003111831506_ChangedMovieModel.Designer.cs">
+      <DependentUpon>202003111831506_ChangedMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111844284_ChangedMovieModel1.cs" />
+    <Compile Include="Migrations\202003111844284_ChangedMovieModel1.Designer.cs">
+      <DependentUpon>202003111844284_ChangedMovieModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111845030_ChangedMovieModel2.cs" />
+    <Compile Include="Migrations\202003111845030_ChangedMovieModel2.Designer.cs">
+      <DependentUpon>202003111845030_ChangedMovieModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111853007_ChangedGenreModel.cs" />
+    <Compile Include="Migrations\202003111853007_ChangedGenreModel.Designer.cs">
+      <DependentUpon>202003111853007_ChangedGenreModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111854063_PopulateGenreTable.cs" />
+    <Compile Include="Migrations\202003111854063_PopulateGenreTable.Designer.cs">
+      <DependentUpon>202003111854063_PopulateGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111900065_AddedDateAddedToMovieModel.cs" />
+    <Compile Include="Migrations\202003111900065_AddedDateAddedToMovieModel.Designer.cs">
+      <DependentUpon>202003111900065_AddedDateAddedToMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -298,6 +327,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +384,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003102112132_UpdateCustomerWithBirthdayTake3.resx">
       <DependentUpon>202003102112132_UpdateCustomerWithBirthdayTake3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111826288_AddedMoviesToDbSet.resx">
+      <DependentUpon>202003111826288_AddedMoviesToDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111831506_ChangedMovieModel.resx">
+      <DependentUpon>202003111831506_ChangedMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111844284_ChangedMovieModel1.resx">
+      <DependentUpon>202003111844284_ChangedMovieModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111845030_ChangedMovieModel2.resx">
+      <DependentUpon>202003111845030_ChangedMovieModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111853007_ChangedGenreModel.resx">
+      <DependentUpon>202003111853007_ChangedGenreModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111854063_PopulateGenreTable.resx">
+      <DependentUpon>202003111854063_PopulateGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111900065_AddedDateAddedToMovieModel.resx">
+      <DependentUpon>202003111900065_AddedDateAddedToMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
