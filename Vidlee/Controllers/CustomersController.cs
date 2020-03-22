@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidlee.Models;
+using Vidlee.ViewModels;
 
 namespace Vidlee.Controllers
 {
@@ -21,6 +22,38 @@ namespace Vidlee.Controllers
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
+        }
+
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MemberTypes = membershipTypes
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if(customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            } else
+            {
+                var customerInDb = _context.Customers
+                    .Single(c => c.Id == customer.Id);
+
+                customerInDb.Name = customer.Name;
+                customerInDb.DateOfBirth = customer.DateOfBirth;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewletter = customer.IsSubscribedToNewletter;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
         }
         public ActionResult Index()
         {
@@ -42,6 +75,24 @@ namespace Vidlee.Controllers
                 return HttpNotFound();
 
             return View(customer);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.
+                SingleOrDefault(c => c.Id == id);
+
+            if (customer == null) {
+                return HttpNotFound();
+            }
+
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = customer,
+                MemberTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
         }
     }
 }

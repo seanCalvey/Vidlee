@@ -17,7 +17,7 @@ namespace Vidlee.Models
         public bool IsSubscribedToNewletter { get; set; }
 
         public MembershipType MembershipType { get; set; }
-
+        [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
