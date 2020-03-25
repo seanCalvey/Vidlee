@@ -20,6 +20,8 @@ namespace Vidlee.Models
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
+       
+        [Min18YearsIfAMember]
         public DateTime? DateOfBirth { get; set; }
     }
 }
