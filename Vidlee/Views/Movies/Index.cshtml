@@ -1,4 +1,4 @@
-﻿@model List<Vidlee.Models.Movie>
+﻿@model IEnumerable<Vidlee.Models.Movie>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 <h2>Movies</h2>
 @Html.ActionLink("New Movie", "New", "Movies", new { @class = "btn btn-primary" })
 <br />
-<table class="table table-bordered table-hover">
+<table id="movies" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Movie</th>
@@ -15,12 +15,34 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var movie in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
-                <td>@movie.Genre.Name</td>
-            </tr>
-        }
+       
+     
     </tbody>
 </table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#movies").DataTable({
+                ajax: {
+                    url: "/Api/Movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, movie) {
+                            return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "genre.name"
+                    }
+                ]
+            })
+        });
+    </script>
+    
+    
+    
+    }

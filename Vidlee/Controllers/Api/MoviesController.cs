@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Vidlee.Models;
+using Vidlee.Dto;
+using AutoMapper;
 
 
 
@@ -19,11 +22,14 @@ namespace Vidlee.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        //GET Api/Movies getMovies
+        //GET api/ovies getMovies
 
-        public IEnumerable<Movie> GetMovies()
+        public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList();
+            return _context.Movies
+                .Include(m => m.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
         }
 
         //GET Api/Movies/{Id} getMovie
