@@ -22,7 +22,7 @@
     <script>
         $(document).ready(function () {
 
-            $("#customers").DataTable({
+            let table = $("#customers").DataTable({
                 ajax: {
                     url: "/api/customers",
                     dataSrc: ""
@@ -31,11 +31,11 @@
                     {
                         data: "name",
                         render: function (data, type, customer) {
-                            return "<a href='customer/edit/" + customer.id + ">" + customer.name + "</a>";
+                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
                         }
                     },
                     {
-                        data: "name"
+                        data: "membershipType.name"
                     },
                     {
                         data: "id",
