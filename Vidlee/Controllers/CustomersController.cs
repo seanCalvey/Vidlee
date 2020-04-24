@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidlee.Models;
+using Vidlee.Models.IdentityModels;
 using Vidlee.ViewModels;
 
 namespace Vidlee.Controllers

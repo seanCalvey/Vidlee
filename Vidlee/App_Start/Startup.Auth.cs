@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Vidlee.Models;
+using Vidlee.Models.IdentityModels;
 
 namespace Vidlee
 {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Http;
 using Vidlee.Dto;
 using Vidlee.Models;
+using Vidlee.Models.IdentityModels;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
 using HttpPutAttribute = System.Web.Http.HttpPutAttribute;

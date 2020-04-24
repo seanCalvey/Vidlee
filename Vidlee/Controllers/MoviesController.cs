@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
 using Vidlee.Models;
+using Vidlee.Models.IdentityModels;
 using Vidlee.ViewModels;
 
 namespace Vidlee.Controllers
@@ -50,6 +51,7 @@ namespace Vidlee.Controllers
             return View("MovieForm", viewModel);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -65,6 +67,8 @@ namespace Vidlee.Controllers
 
             return View("MovieForm", viewModel);
         }
+
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Save(Movie movie)

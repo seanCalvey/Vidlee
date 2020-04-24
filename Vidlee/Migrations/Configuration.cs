@@ -4,15 +4,16 @@ namespace Vidlee.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+ 
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Vidlee.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Vidlee.Models.IdentityModels.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Vidlee.Models.ApplicationDbContext context)
+        protected override void Seed(Vidlee.Models.IdentityModels.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

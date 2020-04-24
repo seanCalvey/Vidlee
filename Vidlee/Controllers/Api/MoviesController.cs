@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Vidlee.Models;
+using Vidlee.Models.IdentityModels;
 using Vidlee.Dto;
 using AutoMapper;
 
@@ -43,6 +44,7 @@ namespace Vidlee.Controllers.Api
             return Ok(movie);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         //Post Api/Movies CreateMovie
         public IHttpActionResult CreateMovie(Movie movie)
         {
@@ -56,6 +58,7 @@ namespace Vidlee.Controllers.Api
         }
 
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         //PUT Api/Movies/{Id} UpdateMovie
         public IHttpActionResult UpdateMovie(int id, Movie movie)
         {

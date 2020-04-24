@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Vidlee.Models;
+using Vidlee.Models.IdentityModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Vidlee.Controllers
@@ -156,7 +157,8 @@ namespace Vidlee.Controllers
                 { 
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicense = model.DrivingLicense
+                    DrivingLicense = model.DrivingLicense,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
