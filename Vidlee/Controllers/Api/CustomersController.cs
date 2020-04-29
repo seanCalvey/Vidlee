@@ -25,15 +25,7 @@ namespace Vidlee.Controllers.Api
         // GET /api/customers
 
 
-        public IEnumerable<CustomerDto> GetCustomers()
-        {
-            return _context.Customers
-                .Include(c => c.MembershipType)
-                .ToList().
-                Select(Mapper.Map<Customer, CustomerDto>);
-        }
-
-       /* public IHttpActionResult GetCustomers(string query = null)
+        public IHttpActionResult GetCustomers(string query = null)
         {
             var customersQuery = _context.Customers
                 .Include(c => c.MembershipType);
@@ -46,7 +38,7 @@ namespace Vidlee.Controllers.Api
                 .Select(Mapper.Map<Customer, CustomerDto>);
 
             return Ok(customerDtos);
-        }*/
+        }
 
         // GET /api/customers/1
         public IHttpActionResult GetCustomer(int id)

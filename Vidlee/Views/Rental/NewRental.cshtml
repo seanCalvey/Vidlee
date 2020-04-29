@@ -6,22 +6,46 @@
 
 <h2>New Rental Form</h2>
 
-<form >
+<form id="newRental">
     <div class="form-group">
         <label>Customer</label>
-        <input id="customer" type="text" value="" class="form-control" />
+        <div class="tt-container">
+            <input 
+                   id="customer" 
+                   name="customer" 
+                   type="text" 
+                   required
+                   data-rule-validCustomer="true" 
+                   class="form-control" 
+                   />
+        </div>
     </div>
     <div class="form-group">
         <label>Movie</label>
-        <input id="Movie" type="text" value="" class="form-control" />
+        <div class="tt-container">
+            <input 
+                   id="movie"
+                   name="movie"
+                   type="text" 
+                   data-rule-movieSelected="true" 
+                   value="" 
+                   class="form-control"
+                   />
+        </div>
     </div>
 
-    <ul id="movies" class="list-group"></ul>    
+    <div class="row">
+        <div class="col-md-4">
+            <ul id="movies" class="list-group"></ul>
+        </div>
+    </div>
+     
 
     <button class="btn btn-primary">Submit</button>
 </form>
 
 @section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
         var vm = {
             movieIds: []
@@ -45,7 +69,7 @@
                 display: 'name',
                 source: customers
             }).on("typeahead:select", function (e, customer) {
-                vn.customerId = customer.id;
+                vm.customerId = customer.id;
             });
 
             var movies = new Bloodhound({
@@ -57,7 +81,7 @@
                 }
             });
 
-            $('#Movie').typeahead({
+            $('#movie').typeahead({
                 minLength: 3,
                 highlight: true
             }, {
@@ -65,11 +89,44 @@
                 display: 'name',
                 source: movies
             }).on("typeahead:select", function (e, movie) {
-                $("#movies").append("<li>" + movie.name + "</li>");
+                $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
                 $("#movies").typeahead("val", "");
                 vm.movieIds.push(movie.id);
             });
 
+            $.validator.addMethod("validCustomer", function () {
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer");
+
+            $.validator.addMethod("movieSelected", function () {
+                return vm.movieIds.length > 0;
+            }, "Please select a Movie");
+
+            var validator = $("#newRental").validate({
+                submitHandler: function () {
+                    $.ajax({
+                        url: "/Api/Rental/NewRental",
+                        method: "post",
+                        data: vm
+
+                    })
+                        .done(function () {
+                            toastr.success("Rental Done");
+
+                            $("customer").typeahead("val", "");
+                            $("movie").typeahead("val", "");
+                            $("movies").empty();
+
+                            vm = { movieIds: [] };
+
+                            validator.resetForm();
+                        })
+                        .fail(function () {
+                            toastr.error("Please Retry");
+                        });
+                    return false;
+                }
+            })
         });
     </script>
     

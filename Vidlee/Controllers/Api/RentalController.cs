@@ -22,14 +22,14 @@ namespace Vidlee.Controllers.Api
         [HttpPost]
         public IHttpActionResult NewRental(NewRentalDto newRental)
         {
-            
-            var customer = _context.Customers.Single(
+
+            Customer customer = _context.Customers.Single(
                 c => c.Id == newRental.CustomerId);
 
             var movies = _context.Movies.Where(
                 m => newRental.MovieIds.Contains(m.Id)).ToList();
 
-            foreach (var movie in movies)
+            foreach (Movie movie in movies)
             {
                 if (movie.AvailableStock == 0)
                     return BadRequest("Movie is not available.");
